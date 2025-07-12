@@ -1,6 +1,3 @@
-const ClientError = require('../../exceptions/ClientError');
-
-
 class UsersHandler {
   constructor(service, validator) {
     this._service = service;
@@ -33,9 +30,7 @@ class UsersHandler {
 
   async getUserByIdHandler(request, h) {
     const { id } = request.params;
-
     const user = await this._service.getUserById(id);
-
     return {
       status: 'success',
       data: {
@@ -44,4 +39,5 @@ class UsersHandler {
     };
   }
 }
+
 module.exports = UsersHandler;
